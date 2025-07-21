@@ -4,15 +4,7 @@
     "font_size": 16.0,
     "bold": false,
     "italic": false,
-    "header": "h4",
-    "page": 0
-  },
-  {
-    "text": "RFP: R RFP: R RFP: R RFP: Request f quest f quest f quest for Pr r Pr r Pr r Proposal oposal oposal oposal",
-    "font_size": 32.0,
-    "bold": false,
-    "italic": false,
-    "header": "h1",
+    "header": "h3",
     "page": 0
   },
   {
@@ -20,7 +12,7 @@
     "font_size": 24.0,
     "bold": false,
     "italic": false,
-    "header": "h2",
+    "header": "h1",
     "page": 0
   },
   {
@@ -28,7 +20,7 @@
     "font_size": 20.0,
     "bold": false,
     "italic": false,
-    "header": "h3",
+    "header": "h2",
     "page": 0
   },
   {
@@ -36,7 +28,7 @@
     "font_size": 10.0,
     "bold": false,
     "italic": false,
-    "header": "h6",
+    "header": "h4",
     "page": 0
   },
   {
@@ -44,7 +36,7 @@
     "font_size": 20.0,
     "bold": false,
     "italic": false,
-    "header": "h3",
+    "header": "h1",
     "page": 1
   },
   {
@@ -52,7 +44,7 @@
     "font_size": 16.0,
     "bold": false,
     "italic": false,
-    "header": "h4",
+    "header": "h2",
     "page": 1
   },
   {
@@ -60,7 +52,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h3",
     "page": 1
   },
   {
@@ -84,7 +76,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h6",
     "page": 1
   },
   {
@@ -92,7 +84,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h5",
     "page": 1
   },
   {
@@ -100,7 +92,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 2
   },
   {
@@ -108,7 +100,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 2
   },
   {
@@ -116,7 +108,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 2
   },
   {
@@ -156,7 +148,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h2",
     "page": 3
   },
   {
@@ -164,7 +156,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h1",
     "page": 3
   },
   {
@@ -236,7 +228,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h2",
     "page": 4
   },
   {
@@ -244,7 +236,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h1",
     "page": 4
   },
   {
@@ -268,7 +260,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 5
   },
   {
@@ -276,7 +268,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 5
   },
   {
@@ -284,7 +276,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 5
   },
   {
@@ -300,7 +292,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 6
   },
   {
@@ -316,7 +308,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 6
   },
   {
@@ -324,7 +316,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 6
   },
   {
@@ -332,7 +324,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 6
   },
   {
@@ -340,7 +332,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 7
   },
   {
@@ -348,7 +340,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 7
   },
   {
@@ -356,7 +348,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 7
   },
   {
@@ -364,7 +356,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 8
   },
   {
@@ -372,7 +364,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
@@ -380,15 +372,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": true,
-    "header": "h6",
-    "page": 8
-  },
-  {
-    "text": "The first phase will be to build the ODL business plan. This plan will clearly define the ODL’s services, funding and governance structures, as well as implementation plans for 2003-2005. It will also secure the full commitment of all stakeholders and scope the operational plan for ODL for 2006 and beyond. Given the number and diversity of stakeholders involved, the business planning process must be a fully consultative approach. To ensure that the planning results in a workable plan with the full commitment of all stakeholders it must have competent, dedicated staffing and monies for the travel and communication components so critical in a consultative process.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
@@ -396,7 +380,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
@@ -404,31 +388,15 @@
     "font_size": 10.0,
     "bold": true,
     "italic": true,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
-    "text": "The second phase will be to implement the ODL based on the business plan. This phase recognizes that for ODL to be optimally successful libraries must transition to a new way of doing business and providing services. The transition must occur while libraries continue to provide existing services and respond to current challenges. This implementation phase will funded by a partnership of government, library stakeholders and other interested parties as a means to quickly jumpstart the ODL. The seed money requested will allow libraries to realign their budgets and services as the infrastructure",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 8
-  },
-  {
-    "text": "and content of the ODL is created and secured. Some of the funding will be new money, although there is every indication that existing budgets and methods of operating may be modified as a result of recommendations. During this phase the polices, procedures, governance structures and accountability",
+    "text": "is every indication that existing budgets and methods of operating may be modified as a result of",
     "font_size": 10.0,
     "bold": true,
     "italic": true,
-    "header": "h6",
-    "page": 8
-  },
-  {
-    "text": "mechanisms of the ODL will be put in place. Pilot projects will be initiated, evaluated and expanded. Information resources will be identified, contracts for these resources will be negotiated and resources will be made deployed through the ODL. Regular evaluation during this phase will ensure the ODL is achieving its objectives and is accountable to its key communities.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
@@ -436,7 +404,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
@@ -444,15 +412,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": true,
-    "header": "h6",
-    "page": 8
-  },
-  {
-    "text": "In the third phase the ODL moves into the operational stage. Ontarians will experience the full benefits of the initiative and libraries will consolidate support around the ODL to grow resources and extend",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 8
   },
   {
@@ -460,7 +420,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 8
   },
   {
@@ -468,23 +428,15 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 8
-  },
-  {
-    "text": "capabilities. The challenge is to secure resources sufficient to both sustain the original investments and to enhance the ODL. The ongoing funding of the ODL will be based on a partnership model involving all the key participants (i.e. government, libraries, donors, public and private sectors). All participants (i.e. beneficiaries) are expected to make financial contributions to the ODL. It is important in achieving the full impact of the ODL on Ontario’s economy, society and learning support that all library sectors are participants (university, colleges, public libraries and schools). The proposed funding model requires a continuing government investment, but also recognizes that as the ODL matures a growing share of ODL funding will come from libraries and non-governmental sources. During the 3-year implementation phase (2004 – 2006) libraries will realign their budgets to enable ongoing funding contributions to ODL. During the same period ODL must build the proposed endowment and secure public and private sector gifts and/or in-kind contributions. The following chart outlines the model. This model is based on these assumptions: 1. that ODL expenditures will increase by 50% over a 10 year period 2. that government funding will decrease from 70% to 45% during that 10 year period 3. that library contributions, endowment and gifts/in-kind funding will increase from 30% to 55% during the same period",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 9
   },
   {
     "text": "OVERVIEW OF ODL FUNDING MODEL",
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 9
   },
   {
@@ -492,15 +444,7 @@
     "font_size": 12.0,
     "bold": true,
     "italic": false,
-    "header": "h5",
-    "page": 9
-  },
-  {
-    "text": "Government $35M (70%) $33.75M (45%) Libraries $10M (20%) $22.5M (30%) Endowment $4.5M (9%) $15M (20%) Gifts/In-Kind $0.5M (1%) $3.75M (5%)",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "h1",
     "page": 9
   },
   {
@@ -508,39 +452,23 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 9
   },
   {
-    "text": "$50M $75M While the private sector will be invited to participate in the ODL through the endowment, gifts and in- kind contributions, the ODL will also explore compatible commercial services which leverage the reach of the ODL and help to offset operating costs. A $50M budget leverages the consortium buying power of the province’s libraries to secure the best prices for information resources, the widest accessibility and the most favourable contracts. A budget of this nature will ensure a core digital collection of sufficient scope and coverage to address a substantial amount of the wide and diverse information and learning needs of the citizens of Ontario (an overview",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 9
-  },
-  {
-    "text": "of the nature of the ODL digital collection is appended). The proposed ODL expenditures in 2006 represent an investment of $5.00 per citizen.",
+    "text": "represent an investment of $5.00 per citizen.",
     "font_size": 10.0,
     "bold": true,
     "italic": true,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 9
   },
   {
-    "text": "It is important to recognize that every new dollar per citizen invested in the Ontario Digital Library has a double benefit: it supports a province-wide library of high quality information resources and it strengthens every local library in Ontario by allowing them to reinvest existing dollars in new resources",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 9
-  },
-  {
-    "text": "that enhance local services. This multiplier means that for every dollar invested in ODL the return on investment is worth $2 of value for Ontario.",
+    "text": "on investment is worth $2 of value for Ontario.",
     "font_size": 10.0,
     "bold": true,
     "italic": true,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 9
   },
   {
@@ -548,7 +476,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 9
   },
   {
@@ -556,7 +484,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 9
   },
   {
@@ -564,7 +492,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
+    "header": "h1",
     "page": 10
   },
   {
@@ -572,15 +500,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "Implementation of the Ontario Digital Library (ODL) requires a detailed business plan to be developed and supported by its diverse stakeholder communities (see: www.odl.on.ca).  The business development planning and commitment process will be overseen by a Steering Committee, who are accountable to potential ODL funders including  the Province of Ontario.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 10
   },
   {
@@ -588,15 +508,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "In broad terms, the ODL Business Plan Steering Committee is responsible for development of the business plan, securing sector support, and management of the planners and process.  Specific responsibilities include: 2.1 developing a detailed business plan for the three-year implementation phase of the ODL, including governance, management, funding model and structure, organizational structure, marketing, staffing, and evaluation; 2.2 consulting with and reporting to stakeholder communities, to ensure open, consistent and two-way communication, and to ensure meaningful opportunities for stakeholder input into decision- making; 2.3 recruiting and managing the business planner(s); 2.4 defining terms of reference and resource parameters for business planner(s), and authorizing expenditures; 2.5 serving as a focus group for business planner(s) to test ideas; 2.6 providing signoff for business planner(s) at key decision points of business plan development; 2.7 securing commitment from library, government, and institutional stakeholders for implementation of the business plan; 2.8 presenting the business plan to funders 2.9 undertaking advocacy efforts to promote the ODL to the broader communities including library and education communities.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 10
   },
   {
@@ -604,71 +516,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "Each of the four sectors, Schools, Colleges, Universities, and Public Libraries can appoint up to two representatives to the steering committee 3.1 Schools: - Ontario School Library Association (OSLA) and The Association of Library Consultants and",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "Coordinators of Ontario (TALCO)  (Executive Council of OSLA to name representative in consultation with TALCO)",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": true,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "3.2 Universities:",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "- Ontario Council of University Libraries (OCUL) (OCUL to name)",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": true,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "3.3 Colleges:",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "- Bibliocentre, and Heads of Libraries and Learning Resources (UAG and HLLR to name)",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": true,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "3.4 Public libraries: - Administrators of Medium-sized Public Libraries of Ontario (AMPLO), Administrators of Rural Urban Public Libraries of Ontario (ARUPLO), Administrators of Small Public Libraries of Ontario (ASPLO) and Chief Executives of Large-sized Public Libraries of Ontario (CELPLO)",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 10
-  },
-  {
-    "text": "(Executives of AMPLO, ARUPLO, ASPLO and CELPLO to name)",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": true,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 10
   },
   {
@@ -676,7 +524,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 10
   },
   {
@@ -684,39 +532,15 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 10
-  },
-  {
-    "text": "3.5 Ontario Library Association representative (ex-officio)  (OLA to appoint one representative)",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": true,
-    "header": "h6",
-    "page": 11
-  },
-  {
-    "text": "- Role of the OLA ex-officio member: To act as a liaison between the steering committee and the OLA Board, and to assist the chair with the administrative responsibilities connected with the preparation of the business plan, finance, and communications. 3.6 It is anticipated that as planning for the ODL evolves, the Steering Committee may, at its discretion, call on invited experts to advise on issues as required.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 11
   },
   {
     "text": "4. Appointment Criteria and Process",
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 11
-  },
-  {
-    "text": "4.1 Groups and organizations named in Section 3 above are responsible for appointing up to two representatives to the Steering Committee. 4.2 Desired characteristics for steering committee appointees include: • Strategic thinkers; • Committed to the concept of multi-sector partnerships; • Knowledgeable about digital libraries and resources; • Knowledgeable about government structures; • Respected by their communities; influential; • Able to take a consultative approach;",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 11
   },
   {
@@ -724,15 +548,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
-    "page": 11
-  },
-  {
-    "text": "Able to devote time to Steering Committee business: approximately one day per month for meetings plus 2-3 working days per month on related activities.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "h1",
     "page": 11
   },
   {
@@ -740,15 +556,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 11
-  },
-  {
-    "text": "Expected term on the Steering Committee is the time required to complete development of the business plan plus two months. This process is expected to take approximately 6 months.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 11
   },
   {
@@ -756,15 +564,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 11
-  },
-  {
-    "text": "Chair will be appointed by the Board of the Ontario Library Association. Role of the Chair: In addition to the characteristics for appointees (4.2) the role of the chair will be as a process agent working with the selected consultant(s), OLA, and the Steering Committee to prepare the business plan. The chair must be able to devote 5-8 days per month on activities related to the preparation of the business plan, and communications to stakeholders, funders, and government.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 11
   },
   {
@@ -772,15 +572,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 11
-  },
-  {
-    "text": "It is expected that in person meetings are held once per month and the majority of business will be conducted by e-mail, and teleconference.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 11
   },
   {
@@ -788,15 +580,7 @@
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 11
-  },
-  {
-    "text": "8.1 The Steering Committee is accountable to the Province of Ontario, and to its business plan funders. 8.2 The role of the Ontario Library Association is to assume responsibility for  funds contributed by the ODL funders to finance the business plan, to hold the funds in a separate account, and disperse them for purposes as  directed by the Steering Committee. OLA will provide financial reports to the Steering Committee as requested and shall comply with all government reporting regulations for funds received.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 11
   },
   {
@@ -804,7 +588,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 11
   },
   {
@@ -812,31 +596,15 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 11
-  },
-  {
-    "text": "8.3 The Steering Committee is accountable to its constituent groups and other stakeholders for ongoing communications and consultation on issues and progress.  The Steering committee is responsible for strong liaison with government particularly the Chief Information Officer Community Services Cluster, ADM’s and Deputy Ministers.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
-    "page": 12
   },
   {
     "text": "9. Financial and Administrative Policies",
     "font_size": 10.0,
     "bold": true,
     "italic": false,
-    "header": "h6",
-    "page": 12
-  },
-  {
-    "text": "9.1 Service on the Steering Committee is non-remunerative 9.2 Travel and meeting expenses for Steering Committee members are reimbursed according to the policies of the Ontario Library Association 9.3 Conflict of Interest: The ODL Steering Committee will function according to standard conflict of interest guidelines ensuring that members,  their immediate family members, or their places of employment, will not benefit financially from the decisions  the Steering Committee might make. As a first order of business, the Steering Committee will be expected to adopt a conflict of interest policy statement and procedural guidelines that will govern its work.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "body-bold-italic",
     "page": 12
   },
   {
@@ -844,7 +612,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h2",
     "page": 12
   },
   {
@@ -852,7 +620,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h1",
     "page": 12
   },
   {
@@ -860,15 +628,7 @@
     "font_size": 12.0,
     "bold": false,
     "italic": false,
-    "header": "h5",
-    "page": 13
-  },
-  {
-    "text": "The purpose of the ODL is to provide equal access to information for all Ontario citizens through collaboration and resource sharing. ODL will be a portal - capable of customization as a home page for local libraries - to organized, comprehensive, authoritative and validated e-information resources to meet the needs of all Ontario citizens at all stages and in all aspects of their education, life and work. Some examples: 1. Reference Resources - directories: companies, associations, organizations, governments, educational institutions, etc. etc. - almanacs, country information - dictionaries, thesauri, encyclopedias -consumer information - phone books, - travel guides, entertainment guides - weather information - media/newspapers - leisure time, recreational activity guides - indexing and abstracting services - currency converters, - virtual reference services -vocational/career information -internet search engines -current awareness services 2. Subject Guides -arts and humanities - business and economics - education -recreation and sports -entertainment - games, activities for kids -health information -science and technology -social sciences -society and culture 3. Educational tool-kits -guides to information gathering methodologies, information literacy -study guides -study skill development -web-based curricula -internet search guides 4. Journals, books, maps, music etc.",
-    "font_size": 10.0,
-    "bold": false,
-    "italic": false,
-    "header": "h6",
+    "header": "h1",
     "page": 13
   },
   {
@@ -876,7 +636,7 @@
     "font_size": 7.6,
     "bold": true,
     "italic": true,
-    "header": "h8",
+    "header": "h3",
     "page": 13
   },
   {
@@ -884,7 +644,7 @@
     "font_size": 9.0,
     "bold": true,
     "italic": true,
-    "header": "h7",
+    "header": "h2",
     "page": 13
   }
 ]
