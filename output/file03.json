@@ -64,15 +64,15 @@
     "page": 1
   },
   {
-    "text": "present a proposal for developing the business plan for the Ontario Digital Library (ODL).",
+    "text": "Timeline:",
     "font_size": 11.0,
     "bold": true,
-    "italic": false,
+    "italic": true,
     "header": "body-bold-italic",
     "page": 1
   },
   {
-    "text": "Timeline: St., Suite 303, Toronto, ON  M5C 1M3. Proposals must be received by Noon on Monday, April 21, 2003. of April 28, 2003. No presentation will be expected. Firms or consultants invited to an committee. Contracts with the firm/consultant will be signed the week of May 5, 2003 with the work to",
+    "text": "April 21, 2003.",
     "font_size": 11.0,
     "bold": true,
     "italic": true,
@@ -96,27 +96,11 @@
     "page": 1
   },
   {
-    "text": "Ridley by April 11th that they will be submitting a proposal will not receive any further",
-    "font_size": 11.0,
-    "bold": false,
-    "italic": true,
-    "header": "body-bold-italic",
-    "page": 2
-  },
-  {
     "text": "Background",
     "font_size": 12.0,
     "bold": false,
     "italic": false,
     "header": "h5",
-    "page": 2
-  },
-  {
-    "text": "The concept of an ODL is a key element in The Roadmap to Prosperity, a strategic plan to",
-    "font_size": 11.0,
-    "bold": true,
-    "italic": true,
-    "header": "body-bold-italic",
     "page": 2
   },
   {
@@ -136,7 +120,31 @@
     "page": 2
   },
   {
-    "text": "Equitable access for all Ontarians: Shared decision-making and accountability: Shared governance structure: Shared funding: and put Ontario dollars to work for everyone.",
+    "text": "Equitable access for all Ontarians:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 3
+  },
+  {
+    "text": "Shared decision-making and accountability:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 3
+  },
+  {
+    "text": "Shared governance structure:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 3
+  },
+  {
+    "text": "Shared funding:",
     "font_size": 11.0,
     "bold": true,
     "italic": true,
@@ -160,7 +168,7 @@
     "page": 3
   },
   {
-    "text": "Local points of entry: Access: Guidance and Advice: Training: Provincial Purchasing & Licensing: Technological Support:",
+    "text": "Local points of entry:",
     "font_size": 11.0,
     "bold": true,
     "italic": true,
@@ -168,7 +176,55 @@
     "page": 4
   },
   {
-    "text": "For each Ontario citizen it could mean: For each Ontario student it could mean:",
+    "text": "Access:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 4
+  },
+  {
+    "text": "Guidance and Advice:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 4
+  },
+  {
+    "text": "Training:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 4
+  },
+  {
+    "text": "Provincial Purchasing & Licensing:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 4
+  },
+  {
+    "text": "Technological Support:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": true,
+    "header": "body-bold-italic",
+    "page": 4
+  },
+  {
+    "text": "For each Ontario citizen it could mean:",
+    "font_size": 11.0,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 4
+  },
+  {
+    "text": "For each Ontario student it could mean:",
     "font_size": 11.0,
     "bold": true,
     "italic": false,
@@ -192,7 +248,7 @@
     "page": 4
   },
   {
-    "text": "For each Ontario library it could mean: For the Ontario government it could mean:",
+    "text": "For each Ontario library it could mean:",
     "font_size": 11.0,
     "bold": true,
     "italic": false,
@@ -200,10 +256,10 @@
     "page": 5
   },
   {
-    "text": "A point of entry to information services and resources for all Ontario citizens, connecting to portal initiatives.",
+    "text": "For the Ontario government it could mean:",
     "font_size": 11.0,
     "bold": true,
-    "italic": true,
+    "italic": false,
     "header": "body-bold-italic",
     "page": 5
   },
@@ -232,7 +288,7 @@
     "page": 5
   },
   {
-    "text": "all stakeholders are engaged in creating a synergistic ODL organization. The proposal must indicate how this consultative process will be approached. not. The proposal must indicate how these issues will be approached.",
+    "text": "indicate how this consultative process will be approached.",
     "font_size": 11.0,
     "bold": true,
     "italic": true,
@@ -261,14 +317,6 @@
     "bold": false,
     "italic": false,
     "header": "h5",
-    "page": 6
-  },
-  {
-    "text": "The firm/consultant (or proposed team of consultants) will be expected to work closely with",
-    "font_size": 11.0,
-    "bold": true,
-    "italic": true,
-    "header": "body-bold-italic",
     "page": 6
   },
   {

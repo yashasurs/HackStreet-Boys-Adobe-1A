@@ -1,60 +1,114 @@
-{
-    "title": "Application form for grant of LTC advance",
-    "outline": [
-        {
-            "level": "H2",
-            "text": "Designation",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "PAY + SI + NPA",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "10.",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "11.",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "S.No",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "Name",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "Age",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "Relationship",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "12. Amount of advance required.",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "Date",
-            "page": 1
-        },
-        {
-            "level": "H2",
-            "text": "Signature of Government Servant.",
-            "page": 1
-        }
-    ]
-}
+[
+  {
+    "text": "Application form for grant of LTC advance",
+    "font_size": 11.7,
+    "bold": true,
+    "italic": false,
+    "header": "h1",
+    "page": 0
+  },
+  {
+    "text": "1.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "2.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "3.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "4.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "5.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "6.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "7.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "8.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "9.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "10.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "11.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "S.No Name Age Relationship 1. 2. 3. 4. 5. 6.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  },
+  {
+    "text": "Date Signature of Government Servant.",
+    "font_size": 9.7,
+    "bold": true,
+    "italic": false,
+    "header": "body-bold-italic",
+    "page": 0
+  }
+]

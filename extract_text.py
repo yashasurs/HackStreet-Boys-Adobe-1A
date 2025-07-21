@@ -55,11 +55,16 @@ def extract_pdf_text_with_styles(pdf_path):
         italic = any(span.get('flags', 0) & 1 for span in spans) or any('Italic' in f or 'Oblique' in f for f in line_fonts)
         if main_size != body_font_size:
             header = header_levels.get(main_size)
-        elif bold or italic:
-            header = 'body-bold-italic'
         else:
-            header = None
+            # Only treat as heading if ALL spans are bold or ALL are italic
+            all_bold = all((span.get('flags', 0) & 2) or ('Bold' in span.get('font', '')) for span in spans)
+            all_italic = all((span.get('flags', 0) & 1) or ('Italic' in span.get('font', '') or 'Oblique' in span.get('font', '')) for span in spans)
+            if all_bold or all_italic:
+                header = 'body-bold-italic'
+            else:
+                header = None
         if header is None:
+            prev = None  # Reset prev so headings separated by body are not merged
             continue
         # Merge consecutive headings with same style and page
         key = (header, main_size, bold, italic, page_num)
@@ -85,11 +90,16 @@ def extract_pdf_text_with_styles(pdf_path):
 if __name__ == "__main__":
     import json
     import os
-    input_path = "input/file03.pdf"
-    results = extract_pdf_text_with_styles(input_path)
-    print(json.dumps(results, indent=2, ensure_ascii=False))
-    # Write to output directory with same base filename but .json extension
-    base = os.path.splitext(os.path.basename(input_path))[0]
-    output_path = os.path.join("output", f"{base}.json")
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    input_dir = "input"
+    output_dir = "output"
+    for filename in os.listdir(input_dir):
+        if not filename.lower().endswith(".pdf"):
+            continue
+        input_path = os.path.join(input_dir, filename)
+        results = extract_pdf_text_with_styles(input_path)
+        print(f"Results for {filename}:")
+        print(json.dumps(results, indent=2, ensure_ascii=False))
+        base = os.path.splitext(filename)[0]
+        output_path = os.path.join(output_dir, f"{base}.json")
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
