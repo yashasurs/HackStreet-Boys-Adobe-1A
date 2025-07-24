@@ -43,23 +43,38 @@ def assign_heading_levels(headings):
         # Sort by font size (largest first)
         first_page_headings.sort(key=lambda x: x['font_size'], reverse=True)
         
-        # Consider the largest heading on first page as potential title
-        # But only if it's significantly larger or appears at the top
-        largest_on_first = first_page_headings[0]
+        # Get the largest font size on the first page
+        largest_font_size = first_page_headings[0]['font_size']
         
-        # Check if this heading looks like a document title (not just a section heading)
-        if (len(largest_on_first['text']) > 10 and  # Reasonable length
-            not largest_on_first['text'].isdigit() and  # Not just a number
-            not largest_on_first['text'].endswith(':') and  # Not a section label
-            '.' not in largest_on_first['text'][:5]):  # Not a numbered section
-            title = largest_on_first['text']
+        # Find ALL headings with the largest font size on the first page
+        largest_headings = [h for h in first_page_headings if h['font_size'] == largest_font_size]
+        
+        # Check if these headings can be combined into a title
+        valid_title_parts = []
+        for heading in largest_headings:
+            # Check if this heading looks like a document title component
+            if (len(heading['text']) > 5 and  # Reasonable minimum length
+                not heading['text'].isdigit() and  # Not just a number
+                not heading['text'].endswith(':') and  # Not a section label
+                '.' not in heading['text'][:5] and  # Not a numbered section
+                not heading['text'].startswith(('1.', '2.', '3.', '4.', '5.'))):  # Not numbered heading
+                valid_title_parts.append(heading['text'])
+        
+        # Combine valid title parts
+        if valid_title_parts:
+            if len(valid_title_parts) == 1:
+                title = valid_title_parts[0]
+            else:
+                # Join multiple parts with appropriate separator
+                title = ' - '.join(valid_title_parts)
     
     print(f"DEBUG: Selected title: '{title}'")
     
-    # Filter out the title from headings for level assignment
+    # Filter out all title components from headings for level assignment
+    title_parts = title.split(' - ') if title else []
     non_title_headings = []
     for heading in headings:
-        if heading['text'] != title:
+        if heading['text'] not in title_parts:
             non_title_headings.append(heading)
     
     print(f"DEBUG: Remaining headings after excluding title: {len(non_title_headings)}")

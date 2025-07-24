@@ -35,7 +35,7 @@
     "page": 2
   },
   {
-    "text": "Version Date Remarks",
+    "text": "Version Remarks",
     "font_size": 10.0,
     "bold": true,
     "italic": false,
@@ -49,91 +49,21 @@
     "page": 3
   },
   {
-    "text": "..........................................................................................................................................",
+    "text": "Revision History Table of Contents Introduction to the Foundation Level Extensions Introduction to Foundation Level Agile Tester Extension",
     "font_size": 10.0,
     "bold": true,
     "italic": false,
     "page": 3
   },
   {
-    "text": "Revision History 3 ........................................................................................................................................",
+    "text": "Overview of the Foundation Level Extension – Agile Tester Syllabus",
     "font_size": 10.0,
     "bold": true,
     "italic": false,
     "page": 3
   },
   {
-    "text": "Table of Contents 4 ............................................................................",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "1.",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "Introduction to the Foundation Level Extensions 6 ...............................................................",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "2.",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "Introduction to Foundation Level Agile Tester Extension 7",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "Overview of the Foundation Level Extension – Agile Tester Syllabus .........................................",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "3.",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "10",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "..........................................................................................................................................",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "4.",
-    "font_size": 10.0,
-    "bold": true,
-    "italic": false,
-    "page": 3
-  },
-  {
-    "text": "References 12",
+    "text": "References",
     "font_size": 10.0,
     "bold": true,
     "italic": false,

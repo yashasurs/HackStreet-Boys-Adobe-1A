@@ -53,12 +53,55 @@ def extract_pdf_text_with_styles(pdf_path):
         header_threshold = page_height * 0.1  # Top 10% is header
         footer_threshold = page_height * 0.9  # Bottom 10% is footer
         
+        # First pass: Check for potential document titles in header/footer regions (only on first page)
+        potential_title_blocks = []
+        if page_num == 0:  # Only check first page for titles
+            for b in blocks:
+                if b['type'] != 0:
+                    continue
+                block_y = b['bbox'][1]  # Top y-coordinate of block
+                
+                # Check if this block is in header/footer region
+                if block_y < header_threshold or block_y > footer_threshold:
+                    # Analyze this block to see if it could be a document title
+                    block_spans = []
+                    block_font_sizes = []
+                    block_text = ""
+                    
+                    for line in b['lines']:
+                        for span in line['spans']:
+                            block_spans.append(span)
+                            block_font_sizes.append(round(span['size'], 1))
+                            block_text += span['text']
+                    
+                    if block_spans and block_font_sizes and block_text.strip():
+                        # Check if this looks like a document title
+                        avg_font_size = sum(block_font_sizes) / len(block_font_sizes)
+                        text_length = len(block_text.strip())
+                        
+                        # Criteria for document title: larger font, reasonable length, meaningful text
+                        if (avg_font_size >= 14.0 and  # Larger font size
+                            text_length >= 10 and  # Reasonable length
+                            text_length <= 100 and  # Not too long
+                            not block_text.strip().isdigit() and  # Not just numbers
+                            not is_non_meaningful_heading(block_text.strip())):  # Meaningful text
+                            
+                            potential_title_blocks.append({
+                                'block': b,
+                                'text': block_text.strip(),
+                                'font_size': avg_font_size,
+                                'y_pos': block_y
+                            })
+        
+        # Second pass: Process regular content blocks (excluding header/footer)
         for b in blocks:
             if b['type'] != 0:
                 continue
-            # Skip blocks in header/footer regions
+            # Skip blocks in header/footer regions (unless they're potential titles)
             block_y = b['bbox'][1]  # Top y-coordinate of block
-            if block_y < header_threshold or block_y > footer_threshold:
+            is_potential_title = any(pt['block'] is b for pt in potential_title_blocks)
+            
+            if (block_y < header_threshold or block_y > footer_threshold) and not is_potential_title:
                 continue
                 
             for line in b['lines']:
@@ -200,6 +243,59 @@ def extract_pdf_text_with_styles(pdf_path):
                         })
                         processed_blocks.add(block_id)
                         continue  # Skip line-by-line processing for this block
+        
+        # Process potential title blocks from header/footer regions
+        for potential_title in potential_title_blocks:
+            block = potential_title['block']
+            block_id = id(block)
+            
+            if block_id in processed_blocks:
+                continue  # Already processed
+                
+            # Extract text from the potential title block
+            block_spans = []
+            block_font_sizes = []
+            for line in block['lines']:
+                for span in line['spans']:
+                    block_spans.append(span)
+                    block_font_sizes.append(round(span['size'], 1))
+            
+            if block_spans and block_font_sizes:
+                # Get the most common font size in this block
+                block_size_counts = Counter(block_font_sizes)
+                block_main_size = block_size_counts.most_common(1)[0][0]
+                
+                # Reconstruct the text
+                block_text_parts = []
+                for span in block_spans:
+                    if round(span['size'], 1) == block_main_size:
+                        block_text_parts.append(span['text'])
+                
+                # Remove duplicates while preserving order
+                unique_texts = []
+                seen = set()
+                for text in block_text_parts:
+                    if text not in seen:
+                        unique_texts.append(text)
+                        seen.add(text)
+                
+                # Combine the text
+                heading_text = ' '.join(unique_texts).strip()
+                
+                # Clean up the text
+                heading_text = heading_text.replace("  ", " ")  # Remove double spaces
+                
+                # Add as heading if meaningful
+                if (heading_text and len(heading_text) > 3 and  
+                    not is_non_meaningful_heading(heading_text)):
+                    headings.append({
+                        'text': heading_text,
+                        'font_size': block_main_size,
+                        'bold': any((s.get('flags', 0) & 2) or ('Bold' in s.get('font', '')) for s in block_spans if round(s['size'], 1) == block_main_size),
+                        'italic': any((s.get('flags', 0) & 1) or ('Italic' in s.get('font', '') or 'Oblique' in s.get('font', '')) for s in block_spans if round(s['size'], 1) == block_main_size),
+                        'page': page_num
+                    })
+                    processed_blocks.add(block_id)
         
         # Process remaining lines for regular headings
         page_headings = []

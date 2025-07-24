@@ -1,16 +1,6 @@
 {
-  "title": "",
+  "title": "Overview - Foundation Level Extensions",
   "outline": [
-    {
-      "level": "H1",
-      "text": "Overview",
-      "page": 0
-    },
-    {
-      "level": "H1",
-      "text": "Foundation Level Extensions",
-      "page": 0
-    },
     {
       "level": "H3",
       "text": "Version 1.0",
@@ -22,7 +12,7 @@
       "page": 0
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "Revision History",
       "page": 2
     },
@@ -32,7 +22,7 @@
       "page": 2
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "Table of Contents",
       "page": 3
     },
@@ -52,17 +42,17 @@
       "page": 3
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "Acknowledgements",
       "page": 4
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "Introduction to the Foundation Level Extensions",
       "page": 5
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "Introduction to Foundation Level Agile Tester Extension",
       "page": 6
     },
@@ -102,7 +92,7 @@
       "page": 8
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "Overview of the Foundation Level Extension – Agile Tester Syllabus",
       "page": 9
     },
@@ -117,7 +107,7 @@
       "page": 9
     },
     {
-      "level": "H2",
+      "level": "H1",
       "text": "References",
       "page": 11
     },

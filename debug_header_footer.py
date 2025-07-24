@@ -42,5 +42,5 @@ def debug_header_footer_filtering(pdf_path):
                 first_line_text += span['text']
             print(f"  Content preview: '{first_line_text[:50]}...'")
 
-# Test on file03.pdf
-debug_header_footer_filtering("input/file03.pdf")
+# Test on file04.pdf
+debug_header_footer_filtering("input/file04.pdf")
