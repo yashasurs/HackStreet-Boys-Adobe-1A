@@ -1,25 +1,35 @@
-# Use Python 3.11 slim image as base
-FROM python:3.11-slim
+# Stage 1: Build stage with all dependencies
+FROM python:3.11-alpine as builder
+
+# Install build dependencies
+RUN apk add --no-cache --virtual .build-deps \
+    gcc \
+    g++ \
+    musl-dev \
+    libffi-dev \
+    jpeg-dev \
+    freetype-dev \
+    && rm -rf /var/cache/apk/*
+
+# Copy requirements and install Python packages to a specific directory
+COPY requirements.txt .
+RUN pip install --no-cache-dir --target=/install -r requirements.txt \
+    && apk del .build-deps
+
+# Stage 2: Final runtime stage
+FROM python:3.11-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies required for PyMuPDF (offline compatible)
-RUN apt-get update && apt-get install -y \
-    gcc \
-    g++ \
-    libc6-dev \
-    libffi-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+# Install only essential runtime dependencies
+RUN apk add --no-cache \
+    jpeg \
+    freetype \
+    && rm -rf /var/cache/apk/*
 
-# Copy requirements first to leverage Docker cache
-COPY requirements.txt .
-
-# Install Python dependencies (all downloaded during build for offline operation)
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy Python packages from builder stage
+COPY --from=builder /install /usr/local/lib/python3.11/site-packages
 
 # Copy application code
 COPY extract_text.py .
@@ -32,7 +42,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONPATH=/app
 
 # Create a non-root user for security
-RUN useradd --create-home --shell /bin/bash app
+RUN adduser -D -s /bin/sh app
 
 # Create input and output directories with proper permissions
 RUN mkdir -p /app/input /app/output && \
