@@ -12,11 +12,6 @@ def assign_heading_levels(headings):
     if not headings:
         return {"title": "", "outline": []}
     
-    # Debug: Print all headings with their font sizes
-    print("DEBUG: All headings found:")
-    for i, h in enumerate(headings):
-        print(f"  {i}: '{h['text'][:50]}...' - Size: {h['font_size']}, Bold: {h['bold']}, Page: {h['page']}")
-    
     # Group headings by their characteristics (font_size, bold, italic)
     heading_styles = {}
     for heading in headings:
@@ -27,11 +22,6 @@ def assign_heading_levels(headings):
     
     # Sort styles by font size (descending), then by bold/italic priority
     sorted_styles = sorted(heading_styles.keys(), key=lambda x: (x[0], x[1], x[2]), reverse=True)
-    
-    print(f"DEBUG: Found {len(sorted_styles)} different heading styles:")
-    for style in sorted_styles:
-        count = len(heading_styles[style])
-        print(f"  Font {style[0]}, Bold: {style[1]}, Italic: {style[2]} - {count} headings")
     
     # Find the document title - look for a clear document title on the first page
     title = ""
@@ -68,16 +58,12 @@ def assign_heading_levels(headings):
                 # Join multiple parts with appropriate separator
                 title = ' - '.join(valid_title_parts)
     
-    print(f"DEBUG: Selected title: '{title}'")
-    
     # Filter out all title components from headings for level assignment
     title_parts = title.split(' - ') if title else []
     non_title_headings = []
     for heading in headings:
         if heading['text'] not in title_parts:
             non_title_headings.append(heading)
-    
-    print(f"DEBUG: Remaining headings after excluding title: {len(non_title_headings)}")
     
     # Re-group the remaining headings by their characteristics  
     remaining_heading_styles = {}
@@ -153,10 +139,6 @@ def assign_heading_levels(headings):
             font_size = style[0]
             level_mapping[style] = size_to_level[font_size]
     
-    print(f"DEBUG: Level mapping for remaining headings:")
-    for style, level in level_mapping.items():
-        print(f"  {style} -> {level}")
-    
     # Create the outline - only include non-title headings with their proper levels
     outline = []
     for heading in non_title_headings:
@@ -201,26 +183,16 @@ if __name__ == "__main__":
             
         input_path = os.path.join(input_dir, filename)
         
-        print(f"Processing {filename}...")
-        
         try:
             # Process the PDF
             structured_data = process_pdf_to_structured_format(input_path)
             
-            # Print results
-            print(f"Results for {filename}:")
-            print(json.dumps(structured_data, indent=2, ensure_ascii=False))
-            
             # Save to file
             base = os.path.splitext(filename)[0]
-            output_path = os.path.join(output_dir, f"{base}_structured.json")
+            output_path = os.path.join(output_dir, f"{base}.json")
             
             with open(output_path, "w", encoding="utf-8") as f:
                 json.dump(structured_data, f, indent=2, ensure_ascii=False)
                 
-            print(f"Saved structured output to: {output_path}")
-            print("-" * 50)
-            
         except Exception as e:
-            print(f"Error processing {filename}: {str(e)}")
             continue

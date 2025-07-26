@@ -1,4 +1,3 @@
-
 import fitz  # PyMuPDF
 from collections import Counter
 import re
@@ -399,19 +398,21 @@ def extract_pdf_text_with_styles(pdf_path):
     return headings
 
 
-if __name__ == "__main__":
-    import json
-    import os
-    input_dir = "input"
-    output_dir = "output"
-    for filename in os.listdir(input_dir):
-        if not filename.lower().endswith(".pdf"):
-            continue
-        input_path = os.path.join(input_dir, filename)
-        results = extract_pdf_text_with_styles(input_path)
-        print(f"Results for {filename}:")
-        print(json.dumps(results, indent=2, ensure_ascii=False))
-        base = os.path.splitext(filename)[0]
-        output_path = os.path.join(output_dir, f"{base}.json")
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
+# if __name__ == "__main__":
+#     import json
+#     import os
+#     input_dir = "input"
+#     output_dir = "output"
+    
+#     # Ensure output directory exists
+#     os.makedirs(output_dir, exist_ok=True)
+    
+#     for filename in os.listdir(input_dir):
+#         if not filename.lower().endswith(".pdf"):
+#             continue
+#         input_path = os.path.join(input_dir, filename)
+#         results = extract_pdf_text_with_styles(input_path)
+#         base = os.path.splitext(filename)[0]
+#         output_path = os.path.join(output_dir, f"{base}.json")
+#         with open(output_path, "w", encoding="utf-8") as f:
+#             json.dump(results, f, indent=2, ensure_ascii=False)
