@@ -1,5 +1,5 @@
 # Stage 1: Build stage with all dependencies
-FROM python:3.11-alpine as builder
+FROM python:3.11-alpine AS builder
 
 # Install build dependencies
 RUN apk add --no-cache --virtual .build-deps \
@@ -26,6 +26,7 @@ WORKDIR /app
 RUN apk add --no-cache \
     jpeg \
     freetype \
+    libstdc++ \
     && rm -rf /var/cache/apk/*
 
 # Copy Python packages from builder stage
