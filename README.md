@@ -20,6 +20,7 @@ The tool analyzes PDF documents to:
 - **Dockerized Deployment**: Cross-platform compatibility with AMD64 architecture
 - **Offline Operation**: No network calls or external dependencies required
 - **Fragment Reconstruction**: Handles overlapping/fragmented text spans intelligently
+- **Multilingual Support**: Automatic language detection and processing for 10+ languages including Japanese, Chinese, Korean, and European languages
 
 ## Project Structure
 
@@ -118,6 +119,41 @@ The application generates JSON files with the following structure:
 
 Each PDF file will be processed and a corresponding JSON file will be created with the same name but `.json` extension.
 
+## Multilingual Support
+
+The tool includes comprehensive multilingual support with automatic language detection and language-specific text filtering:
+
+### Supported Languages
+- **English** (en) - Default
+- **Spanish** (es)
+- **French** (fr) 
+- **German** (de)
+- **Japanese** (ja) - With proper CJK character handling
+- **Chinese** (zh) - With proper CJK character handling
+- **Korean** (ko) - With proper CJK character handling
+- **Portuguese** (pt)
+- **Italian** (it)
+- **Russian** (ru) - With Cyrillic script support
+
+### How It Works
+1. **Automatic Detection**: The system analyzes character patterns to detect document language
+2. **Script Recognition**: Identifies Hiragana/Katakana (Japanese), Hangul (Korean), CJK ideographs (Chinese/Japanese), Cyrillic (Russian)
+3. **Language-Specific Filtering**: Uses appropriate filter words for each language to remove non-meaningful content
+4. **Smart Length Handling**: Adjusts minimum heading length requirements (CJK languages use 2 characters, others use 3)
+
+### Usage
+```python
+# Automatic language detection (default)
+extract_pdf_text_with_styles(pdf_path, language='auto')
+
+# Force specific language
+extract_pdf_text_with_styles(pdf_path, language='ja')  # Japanese
+extract_pdf_text_with_styles(pdf_path, language='zh')  # Chinese
+extract_pdf_text_with_styles(pdf_path, language='ko')  # Korean
+```
+
+The multilingual support maintains full backwards compatibility - existing functionality remains unchanged while adding robust support for international documents.
+
 ## Core Components
 
 ### main.py
@@ -133,6 +169,8 @@ Core extraction engine that:
 - Identifies potential headings based on font size and styling
 - Handles fragmented/overlapping text reconstruction
 - Filters out non-meaningful content (page numbers, artifacts)
+- **Multilingual Support**: Automatic language detection and language-specific filtering
+- **Supported Languages**: English, Spanish, French, German, Japanese, Chinese, Korean, Portuguese, Italian, Russian
 
 ### format.py
 Formatting and structuring module that:

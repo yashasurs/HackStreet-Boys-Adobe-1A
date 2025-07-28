@@ -2,48 +2,159 @@ import fitz  # PyMuPDF
 from collections import Counter
 import re
 
+# Language-specific filter words and phrases
+LANGUAGE_FILTERS = {
+    'en': {
+        'short_words': ['date', 'name', 'age', 'no', 'ref', 'id', 's.no', 'version'],
+        'form_phrases': ['signature', 'date signature', 'government servant']
+    },
+    'es': {
+        'short_words': ['fecha', 'nombre', 'edad', 'no', 'ref', 'id', 'ver'],
+        'form_phrases': ['firma', 'fecha firma', 'servidor público']
+    },
+    'fr': {
+        'short_words': ['date', 'nom', 'âge', 'non', 'réf', 'id', 'ver'],
+        'form_phrases': ['signature', 'date signature', 'fonctionnaire']
+    },
+    'de': {
+        'short_words': ['datum', 'name', 'alter', 'nein', 'ref', 'id', 'ver'],
+        'form_phrases': ['unterschrift', 'datum unterschrift', 'beamter']
+    },
+    'ja': {
+        'short_words': ['日付', '名前', '年齢', 'いいえ', '参照', 'id', '版'],
+        'form_phrases': ['署名', '日付署名', '公務員']
+    },
+    'zh': {
+        'short_words': ['日期', '姓名', '年龄', '否', '参考', 'id', '版本'],
+        'form_phrases': ['签名', '日期签名', '公务员']
+    },
+    'ko': {
+        'short_words': ['날짜', '이름', '나이', '아니오', '참조', 'id', '버전'],
+        'form_phrases': ['서명', '날짜 서명', '공무원']
+    },
+    'pt': {
+        'short_words': ['data', 'nome', 'idade', 'não', 'ref', 'id', 'ver'],
+        'form_phrases': ['assinatura', 'data assinatura', 'servidor público']
+    },
+    'it': {
+        'short_words': ['data', 'nome', 'età', 'no', 'rif', 'id', 'ver'],
+        'form_phrases': ['firma', 'data firma', 'dipendente pubblico']
+    },
+    'ru': {
+        'short_words': ['дата', 'имя', 'возраст', 'нет', 'ссылка', 'id', 'версия'],
+        'form_phrases': ['подпись', 'дата подписи', 'государственный служащий']
+    }
+}
 
-def is_non_meaningful_heading(text):
+def detect_language(text_sample):
+    """
+    Simple language detection based on character patterns.
+    Returns the most likely language code.
+    """
+    if not text_sample:
+        return 'en'
+    
+    # Count characters from different scripts
+    latin_chars = sum(1 for c in text_sample if c.isalpha() and ord(c) < 256)
+    hiragana_chars = sum(1 for c in text_sample if 0x3040 <= ord(c) <= 0x309F)
+    katakana_chars = sum(1 for c in text_sample if 0x30A0 <= ord(c) <= 0x30FF)
+    cjk_chars = sum(1 for c in text_sample if 0x4E00 <= ord(c) <= 0x9FAF)
+    korean_chars = sum(1 for c in text_sample if 0xAC00 <= ord(c) <= 0xD7AF)
+    cyrillic_chars = sum(1 for c in text_sample if 0x0400 <= ord(c) <= 0x04FF)
+    
+    total_chars = len([c for c in text_sample if c.isalpha() or 0x3000 <= ord(c) <= 0x9FAF or 0xAC00 <= ord(c) <= 0xD7AF])
+    if total_chars == 0:
+        return 'en'
+    
+    # Determine language based on character distribution
+    japanese_score = hiragana_chars + katakana_chars
+    
+    if korean_chars > total_chars * 0.3:
+        return 'ko'
+    elif japanese_score > 0 or (hiragana_chars > 0 or katakana_chars > 0):
+        return 'ja'  # Japanese if any hiragana/katakana present
+    elif cjk_chars > total_chars * 0.3:
+        return 'zh'  # Chinese for CJK without Japanese kana
+    elif cyrillic_chars > total_chars * 0.3:
+        return 'ru'
+    else:
+        return 'en'  # Default to English for Latin-based scripts
+
+def is_non_meaningful_heading(text, language='auto'):
     """
     Check if a heading text is non-meaningful and should be filtered out.
     Returns True if the text should be excluded.
+    Language-aware filtering for better multilingual support.
     """
-    if not text or len(text.strip()) <= 3:
+    if not text or len(text.strip()) == 0:
         return True
     
     text_clean = text.strip()
     
-    # Filter out pure numbers or simple patterns
+    # Auto-detect language if not specified
+    if language == 'auto':
+        language = detect_language(text_clean)
+    
+    # Get language-specific filters, fallback to English
+    filters = LANGUAGE_FILTERS.get(language, LANGUAGE_FILTERS['en'])
+    
+    # Adjust minimum length based on language (CJK languages can have meaningful single characters)
+    min_length = 2 if language in ['ja', 'zh', 'ko'] else 3
+    if len(text_clean) < min_length:
+        return True
+    
+    # Filter out pure numbers or simple patterns (universal)
     if re.match(r'^\d+\.?$', text_clean):  # Just numbers like "1", "2.", etc.
         return True
     
-    # Filter out dots/dashes patterns (table of contents formatting)
+    # Filter out dots/dashes patterns (table of contents formatting) - universal
     if re.match(r'^[.\-•\s]+$', text_clean):  # Just dots, dashes, bullets
         return True
     
-    # Filter out very short single words that are likely not headings
-    if len(text_clean) <= 5 and text_clean.lower() in ['date', 'name', 'age', 'no', 'ref', 'id', 's.no', 'version']:
+    # Filter out very short single words that are likely not headings (language-specific)
+    if len(text_clean) <= 5 and text_clean.lower() in filters['short_words']:
         return True
     
-    # Filter out table-of-contents style entries with lots of dots and page numbers
+    # Filter out table-of-contents style entries with lots of dots and page numbers - universal
     if re.search(r'\.{5,}', text_clean):  # 5 or more consecutive dots
         return True
     
-    # Filter out entries that are mostly page numbers and dots
+    # Filter out entries that are mostly page numbers and dots - universal
     if re.match(r'^.*\d+\s*\.{3,}.*\d+$', text_clean):  # Pattern like "Chapter 1 .... 5"
         return True
     
-    # Filter out signature/form placeholder text
-    if any(phrase in text_clean.lower() for phrase in ['signature', 'date signature', 'government servant']):
+    # Filter out signature/form placeholder text (language-specific)
+    if any(phrase in text_clean.lower() for phrase in filters['form_phrases']):
         return True
     
     return False
 
 
-def extract_pdf_text_with_styles(pdf_path):
-
+def extract_pdf_text_with_styles(pdf_path, language='auto'):
+    """
+    Extract headings from PDF with multilingual support.
+    
+    Args:
+        pdf_path (str): Path to the PDF file
+        language (str): Language code ('en', 'ja', 'zh', 'ko', 'es', etc.) or 'auto' for detection
+        
+    Returns:
+        list: List of heading dictionaries with text, font_size, bold, italic, page
+    """
     doc = fitz.open(pdf_path)
     headings = []
+    
+    # Auto-detect language from first page if not specified
+    detected_language = language
+    if language == 'auto':
+        # Sample text from first page for language detection
+        if len(doc) > 0:
+            first_page = doc[0]
+            sample_text = first_page.get_text()[:1000]  # First 1000 characters
+            detected_language = detect_language(sample_text)
+        else:
+            detected_language = 'en'
+    
     for page_num, page in enumerate(doc):
         blocks = page.get_text("dict")['blocks']
         font_sizes = []
@@ -83,7 +194,7 @@ def extract_pdf_text_with_styles(pdf_path):
                             text_length >= 10 and  # Reasonable length
                             text_length <= 100 and  # Not too long
                             not block_text.strip().isdigit() and  # Not just numbers
-                            not is_non_meaningful_heading(block_text.strip())):  # Meaningful text
+                            not is_non_meaningful_heading(block_text.strip(), detected_language)):  # Meaningful text
                             
                             potential_title_blocks.append({
                                 'block': b,
@@ -231,8 +342,10 @@ def extract_pdf_text_with_styles(pdf_path):
                         heading_text = sorted_texts[0].strip() if sorted_texts else ""
                     
                     # Filter out non-meaningful headings
-                    if (heading_text and len(heading_text) > 3 and  # Minimum length check
-                        not is_non_meaningful_heading(heading_text)):  # Filter meaningless headings
+                    # Adjust minimum length based on detected language
+                    min_heading_length = 2 if detected_language in ['ja', 'zh', 'ko'] else 3
+                    if (heading_text and len(heading_text) > min_heading_length and  # Language-aware minimum length check
+                        not is_non_meaningful_heading(heading_text, detected_language)):  # Filter meaningless headings
                         headings.append({
                             'text': heading_text,
                             'font_size': block_main_size,
@@ -285,8 +398,9 @@ def extract_pdf_text_with_styles(pdf_path):
                 heading_text = heading_text.replace("  ", " ")  # Remove double spaces
                 
                 # Add as heading if meaningful
-                if (heading_text and len(heading_text) > 3 and  
-                    not is_non_meaningful_heading(heading_text)):
+                min_heading_length = 2 if detected_language in ['ja', 'zh', 'ko'] else 3
+                if (heading_text and len(heading_text) > min_heading_length and  
+                    not is_non_meaningful_heading(heading_text, detected_language)):
                     headings.append({
                         'text': heading_text,
                         'font_size': block_main_size,
@@ -353,7 +467,7 @@ def extract_pdf_text_with_styles(pdf_path):
                             unique_words.append(word)
                     heading_text = ' '.join(unique_words)
                     
-                    if heading_text and not is_non_meaningful_heading(heading_text):
+                    if heading_text and not is_non_meaningful_heading(heading_text, detected_language):
                         page_headings.append({
                             'text': heading_text,
                             'font_size': first_size,
