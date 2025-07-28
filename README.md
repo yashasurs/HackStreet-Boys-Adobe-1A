@@ -1,64 +1,81 @@
-# PDF Text Extraction with Docker
+# PDF Structure Extraction Tool
 
-This application extracts text and headings from PDF files and generates structured JSON output with document titles and hierarchical outlines.
+This is a comprehensive PDF text extraction and analysis tool that identifies document titles and hierarchical heading structures from PDF files. It uses PyMuPDF to process documents and generates standardized JSON output with document titles and structured outlines following a predefined schema.
 
-## Prerequisites
+## Project Overview
 
-- Docker installed on your system
-- PDF files you want to process
-- AMD64 (x86_64) architecture support
+The tool analyzes PDF documents to:
+- Extract document titles from the largest font sizes on the first page
+- Identify hierarchical headings (H1-H4) based on font size, styling, and positioning
+- Generate structured JSON output following a standardized schema
+- Process multiple PDFs in batch mode
+- Run completely offline with no network dependencies
 
-## Quick Start
+## Key Features
 
-### 1. Build the Docker Image (AMD64 Compatible)
+- **Intelligent Title Detection**: Identifies document titles from header regions and largest fonts
+- **Hierarchical Heading Analysis**: Assigns H1-H4 levels based on font size and formatting hierarchy  
+- **Schema-Compliant Output**: Generates JSON following the defined output schema
+- **Batch Processing**: Processes multiple PDF files automatically
+- **Dockerized Deployment**: Cross-platform compatibility with AMD64 architecture
+- **Offline Operation**: No network calls or external dependencies required
+- **Fragment Reconstruction**: Handles overlapping/fragmented text spans intelligently
 
+## Project Structure
+
+```
+HackStreet-Boys-Adobe-1A/
+├── Dockerfile                  # Container configuration
+├── requirements.txt            # Python dependencies
+├── main.py                     # Entry point script
+├── extract_text.py             # PDF text extraction logic
+├── format.py                   # JSON formatting and hierarchy logic
+├── temp.py                     # Development utility
+├── sample_dataset/             # Example files and schema
+│   ├── schema/output_schema.json
+│   ├── outputs/sample_report.json
+│   └── pdfs/                   # Sample PDF files
+├── input/                      # Place your PDF files here
+└── output/                     # Generated JSON files appear here
+```
+
+## How It Works
+
+1. **PDF Analysis**: The `extract_text.py` module uses PyMuPDF to extract text with detailed font metadata
+2. **Heading Detection**: Identifies potential headings based on font size, bold/italic styling, and positioning
+3. **Title Extraction**: Finds document titles from header regions and largest fonts on the first page
+4. **Hierarchy Assignment**: The `format.py` module assigns H1-H4 levels based on font size relationships
+5. **JSON Generation**: Creates structured output following the schema in `sample_dataset/schema/output_schema.json`
+6. **Batch Processing**: The `main.py` entry point processes all PDFs in the input directory
+
+## Docker Usage
+
+### Build the image
 ```bash
-docker build --platform linux/amd64 -t mysolutionname:somerandomidentifier .
+# Linux/macOS
+docker build --platform linux/amd64 -t pdf-extractor:latest .
+
+# Windows PowerShell
+docker build --platform linux/amd64 -t pdf-extractor:latest .
 ```
 
-### 2. Prepare Your PDF Files
-
-Create an `input` directory and place your PDF files there:
-
+### Run the container
 ```bash
-mkdir input
-# Copy your PDF files to the input directory
+# Linux/macOS
+mkdir -p input output
+docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none pdf-extractor:latest
+
+# Windows PowerShell
+New-Item -ItemType Directory -Force -Path input, output
+docker run --rm -v "${PWD}/input:/app/input" -v "${PWD}/output:/app/output" --network none pdf-extractor:latest
 ```
 
-### 3. Run the Container (Offline Mode)
-
-The container runs completely offline with no network access:
-
-```bash
-docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none mysolutionname:somerandomidentifier
-```
-
-### Windows PowerShell Commands
-
-If you're using Windows PowerShell, use these commands instead:
-
-#### Build the image:
-```powershell
-docker build --platform linux/amd64 -t mysolutionname:somerandomidentifier .
-```
-
-#### Run the container:
-```powershell
-docker run --rm -v "${PWD}/input:/app/input" -v "${PWD}/output:/app/output" --network none mysolutionname:somerandomidentifier
-```
-
-## Docker Commands Explained
-
-### Build Commands
-- `docker build --platform linux/amd64 -t mysolutionname:somerandomidentifier .` - Build for AMD64 architecture
-- `--platform linux/amd64` - Explicitly specify AMD64 platform compatibility
-
-### Run Commands
-- `--rm` - Automatically remove container when it exits
-- `-v $(pwd)/input:/app/input` - Mount local input directory to container
-- `-v $(pwd)/output:/app/output` - Mount local output directory to container
-- `--network none` - Run completely offline with no network access
-- Container processes all PDFs automatically from `/app/input` to `/app/output`
+### Usage Steps
+1. Build the Docker image using the command above
+2. Create `input` and `output` directories
+3. Place your PDF files in the `input` directory
+4. Run the container
+5. Check the `output` directory for generated JSON files
 
 ## Architecture Requirements
 
@@ -67,33 +84,6 @@ docker run --rm -v "${PWD}/input:/app/input" -v "${PWD}/output:/app/output" --ne
 - **Model size**: ≤ 200MB
 - **Offline operation**: No network/internet calls required
 - **Platform**: linux/amd64 compatible
-
-### Management Commands
-- `docker ps` - List running containers
-- `docker ps -a` - List all containers (including stopped)
-- `docker logs pdf-processor` - View logs from named container
-- `docker stop pdf-processor` - Stop the background container
-- `docker rm pdf-processor` - Remove the container
-- `docker images` - List Docker images
-- `docker rmi pdf-extractor` - Remove the image
-
-## Directory Structure
-
-```
-.
-├── Dockerfile
-├── .dockerignore
-├── requirements.txt
-├── main.py
-├── extract_text.py
-├── format.py
-├── input/           # Place your PDF files here
-│   ├── document1.pdf
-│   └── document2.pdf
-└── output/          # JSON results will be saved here
-    ├── document1.json
-    └── document2.json
-```
 
 ## Output Format
 
@@ -117,38 +107,45 @@ The application generates JSON files with the following structure:
 }
 ```
 
-## Troubleshooting
+## Usage Instructions
 
-### Container won't start
-- Check if Docker is running: `docker version`
-- Verify the image was built: `docker images`
+1. **Prerequisites**: Ensure Docker is installed on your system
+2. **Build**: Use the build commands above to create the Docker image
+3. **Prepare**: Create `input` and `output` directories in your project folder
+4. **Add Files**: Place your PDF files in the `input` directory
+5. **Run**: Execute the run command for your operating system
+6. **Results**: Check the `output` directory for generated JSON files
 
-### No output files generated
-- Ensure PDF files are in the `input` directory
-- Check container logs: `docker logs <container-name>`
-- Verify volume mounts are correct
+Each PDF file will be processed and a corresponding JSON file will be created with the same name but `.json` extension.
 
-### Permission issues (Linux/Mac)
-```bash
-# Fix ownership of output files
-sudo chown -R $USER:$USER output/
-```
+## Core Components
 
-### Windows path issues
-Use forward slashes in paths or escape backslashes:
-```powershell
-docker run --rm -v "C:/path/to/input:/app/input" -v "C:/path/to/output:/app/output" pdf-extractor
-```
+### main.py
+Entry point script that:
+- Scans the `/app/input` directory for PDF files
+- Processes each PDF using the extraction pipeline
+- Saves structured JSON output to `/app/output` directory
+- Provides progress feedback and error handling
 
-## Development
+### extract_text.py
+Core extraction engine that:
+- Uses PyMuPDF to parse PDF documents
+- Identifies potential headings based on font size and styling
+- Handles fragmented/overlapping text reconstruction
+- Filters out non-meaningful content (page numbers, artifacts)
 
-### Running without Docker
-```bash
-pip install -r requirements.txt
-python main.py
-```
+### format.py
+Formatting and structuring module that:
+- Assigns hierarchical heading levels (H1-H4)
+- Extracts document titles from first page content
+- Creates schema-compliant JSON output
+- Implements intelligent heading level assignment based on font hierarchy
 
-### Building for production
-```bash
-docker build --target production -t pdf-extractor:prod .
-```
+
+## Architecture Requirements
+
+- **CPU Architecture**: AMD64 (x86_64) 
+- **No GPU dependencies**
+- **Model size**: ≤ 200MB
+- **Offline operation**: No network/internet calls required
+- **Platform**: linux/amd64 compatible
